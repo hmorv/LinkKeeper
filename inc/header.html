@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<?php session_start();//de momento se deja aqui, para que en todas las paginas sea posible continuar con la sesión activa.
+?>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<title><?php echo $page_title; ?></title>
+</head>
+<body>
+	<div id="container">
+		<div id="header">				
+		</div>
+		<div id="content">
+		<nav>			
+				<?php
+				if(isset($_SESSION['id'])) {
+					echo "<a href='logout.php'><span>Logout</span></a>";
+					echo "<a href='main.php'><span>Main</span></a>";
+					echo "<a href='search.php''><span>Search</span></a>";
+					echo "<a href='edit.php'><span>Edit</span></a>";
+				}
+				else {
+					echo "<a href='login.php'><span>Login</span></a>";
+					echo "<a href='index.php'><span>Main page</span></a>";
+					echo "<a href='register.php'><span>Register</span></a>";
+				}
+				?>
+				<!--<div id="main">-->

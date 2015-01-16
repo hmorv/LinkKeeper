@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<title><?php echo $pageTitle; ?></title>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1>LinkKeeper</h1>				
+		</div>
+		<div id="content">
