@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 		$id = $_SESSION['id'];
 		$insQuery="INSERT INTO Logs (Email,Time) VALUES ('$id','$dt')";
 		mysqli_query($dbc,$insQuery);
-		//insert_log($db,$id,$dt);
+		//insert_log($db,$id,$dt); 
 		//setcookie('lastlogin',)
 		redirect_user('loggedin.php');
 		exit();
