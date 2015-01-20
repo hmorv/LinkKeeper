@@ -1,5 +1,5 @@
 <?php
-$page_title = "Welcome to LinkKeeper";
+$page_title = "Welcome";
 include ('inc/header.html');
 ?>
 </nav>

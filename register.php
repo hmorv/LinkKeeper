@@ -4,7 +4,7 @@
 	Validacion campos del formulario.
 	Procesar formulario
 */
-$page_title = "Register page";
+$page_title = "Register";
 include('inc/header.html');
 ?>
 <php if($_SERVER['METHOD']=='POST') {

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$page_title = "logged out";
+	$page_title = "Log out";
 	if(!isset($_SESSION['id'])) {
 		//require('login.php');
 		require('inc/login_functions.inc.php');

@@ -1,4 +1,5 @@
 <?php
+$page_title = "Login";
 if($_SERVER['REQUEST_METHOD']=='POST') {
 	require('inc/login_page.inc.php');
 	require('inc/login_functions.inc.php');
