@@ -25,7 +25,7 @@ $r = @mysqli_query ($dbc, $q);
 
 
 while ($row = mysqli_fetch_array($r, MYSQLI_NUM)) {
-	echo "<option value=\"$row[1]\">$row[0]</option>\n";
+	echo "<option value=\"$row[1]\"> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$row[0]</option>\n";
 }
 
 

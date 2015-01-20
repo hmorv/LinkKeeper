@@ -18,7 +18,7 @@ body {
 	margin-left: 5%;
 	padding-bottom: 1%;
 	background-repeat: no-repeat;
-	margin-top: -2%;
+	
 }
 #main {
 	width:96%;
@@ -43,7 +43,7 @@ body {
 	color: #ab0e47;
 }
 #content span {
-	margin:0em 1.5em;
+	margin:1em 1.5em;
 }
 #menu {
 	float: left;
@@ -134,4 +134,46 @@ nav {
 	color:red;
 	font-weight: bolder;
 	font-size: 1.2em;
+}
+
+#log {
+	margin-top:2%;
+	color: white;
+	
+}
+
+#categoriasMostrar {
+	text-align: left;
+	float: left;
+	margin-left: 12%;
+	padding-bottom: 2%;
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-top: 1%;
+	margin-top: -2%;
+
+}
+
+#enlacesMostrar {
+	text-align: right;
+	float: right;
+	margin-right: 7%;
+	padding-bottom: 2%;
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-top: 1%;
+	margin-top: -2%;
+}
+
+#CAT  {
+	background-color:Teal;
+	width: 200px;
+	height: 50px;
+	text-align: left;
+	border-radius: 25%;
+	text-indent: 5em;
+}
+
+#nombre {
+	color: white;
 }

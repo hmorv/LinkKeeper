@@ -8,11 +8,11 @@ include ('inc/header.html');
 echo '<br/><br/><span id="log">';
 if(isset($_SESSION['id'])) {
 
-		echo "Logged as " . $_SESSION['name'] . " (" . $_SESSION['id'] . ") - started at " . $_SESSION['logindate'];
+		echo "logged as " . $_SESSION['name'] . " (" . $_SESSION['id'] . ") - started at " . $_SESSION['logindate'];
 		
 	}
 	else {
-		echo "Logged as guest.";
+		echo "logged as guest.";
 	}
 ?>
 </span>

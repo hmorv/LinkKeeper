@@ -1,4 +1,10 @@
-<?php 
+<?php
+session_start();
+if(!isset($_SESSION['id'])) {
+		//require('login.php');
+		require('inc/login_functions.inc.php');
+		redirect_user('index.php');
+	}
 $page_title = "Edit";
 include('inc/header.html');
 ?>

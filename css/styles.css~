@@ -5,11 +5,9 @@ body {
 #container {
 	border: solid 6px black;
 	width:100%;
-	height: 850px;
+	height:800px;
 	background-color: black;
 	position: absolute;
-	overflow: auto;
-	
 }
 #header {
 	background-image: url("../img/2.jpg");
@@ -20,19 +18,32 @@ body {
 	margin-left: 5%;
 	padding-bottom: 1%;
 	background-repeat: no-repeat;
-	margin-top: -2%;
+	
+}
+#main {
+	width:96%;
+	height:300px;
+	float: left;
+	margin: 1em 1em 0em 1em;
+	border-radius: 3%;
+	background-color: #1d1e19;
+	color: #2ECCFA;
+	position:relative;
+	overflow: auto;
+
 }
 #content {
 	border-radius: 1%;
 	width: 100%;
-	background-color: black;
+	background-color: #000;
+	color:#ed055f;
 }
 #content a {
 	text-decoration: none;
 	color: #ab0e47;
 }
 #content span {
-	margin:0em 1.5em;
+	margin:1em 1.5em;
 }
 #menu {
 	float: left;
@@ -47,18 +58,18 @@ nav {
 	font-size: 2em;
 }
 #results {
-	width:65%;
+	width:60%;
 	height:600px;
 	float: right;
 	margin: 1em 1em 0em 1em;
 	border-radius: 3%;
 	background-color: #1d1e19;
-	color: White;
+	color: #2ECCFA;
 	
 }
 #footer {
 	width: 99%;
-	margin: 0em 1em 1em 1em;
+	margin: 0em 1em 0em 1em;
 	border-radius: 3%;
 	clear:both;
 	background-color: black;
@@ -66,23 +77,26 @@ nav {
 }
 
 #login {
-	width: 20%;
-
+	width: 40%;
 	border: solid;
 	padding: 2%;
-	margin-left: 37.5%;
-	margin-top:3%;
+	margin-left:29%;
+	text-align: center;
 	background-color: silver;
 	border-color: red;
-
+}
+#login input {
+	background-color: black;
+	color:white;
+	font-weight: bolder;
+	text-align: right;
 }
 
 #Container2 {
 	border: solid 6px black;
 	width:100%;
 	height: 850px;
-	background-color: black;
-	position: absolute;
+	background-color: #2ECCFA;
 	overflow: auto;
 	
 }
@@ -109,7 +123,10 @@ nav {
 }
 
 
-
+#message {
+	color:#e0e0e0;
+	font-size: 1.2em;
+}
 
 
 
@@ -117,4 +134,46 @@ nav {
 	color:red;
 	font-weight: bolder;
 	font-size: 1.2em;
+}
+
+#log {
+	margin-top:2%;
+	color: white;
+	
+}
+
+#categoriasMostrar {
+	text-align: left;
+	float: left;
+	margin-left: 12%;
+	padding-bottom: 2%;
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-top: 1%;
+	margin-top: -2%;
+
+}
+
+#enlacesMostrar {
+	text-align: right;
+	float: right;
+	margin-right: 7%;
+	padding-bottom: 2%;
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-top: 1%;
+	margin-top: -2%;
+}
+
+#CAT * {
+	background-color:Teal;
+	width: 200px;
+	height: 50px;
+	text-align: left;
+	border-radius: 25%;
+	text-indent: 5em;
+}
+
+#nombre {
+	color: white;
 }
