@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php session_start();
 if(!isset($_SESSION['id'])) {
 		//require('login.php');
 		require('inc/login_functions.inc.php');

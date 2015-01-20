@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Login';
+$page_title = 'Login form';
 include('inc/header.html');
 
 //check if is there any error to display

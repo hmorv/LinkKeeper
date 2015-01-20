@@ -1,5 +1,4 @@
-<?php
-	session_start();
+<?php session_start();
 	$page_title = "Log out";
 	if(!isset($_SESSION['id'])) {
 		//require('login.php');

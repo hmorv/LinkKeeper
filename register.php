@@ -1,5 +1,9 @@
-<?php
-
+<?php session_start();
+if(isset($_SESSION['id'])) {
+		include('inc/login_functions.inc.php');
+		redirect_user('main.php');
+		exit();
+	}
 /*PENDIENTE:
 	Validacion campos del formulario.
 	Procesar formulario

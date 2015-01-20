@@ -1,4 +1,9 @@
-<?php
+<?php session_start();
+if(isset($_SESSION['id'])) {
+		include('inc/login_functions.inc.php');
+		redirect_user('main.php');
+		exit();
+	}
 $page_title = "Login";
 if($_SERVER['REQUEST_METHOD']=='POST') {
 	require('inc/login_page.inc.php');

@@ -1,5 +1,4 @@
-<?php
-$page_title = "Welcome";
+<?php $page_title = "Welcome";
 include ('inc/header.html');
 ?>
 </nav>
