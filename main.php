@@ -1,54 +1,44 @@
 <?php session_start();
+
+//if session is not started, redirect to index.php
 if(!isset($_SESSION['id'])){
 	require('inc/login_functions.inc.php');
 	redirect_user('index.php');
 }
 else {
+	//header load
 	$page_title = "Main";
+	$userid = $_SESSION['id'];
+	$user = $_SESSION['name'];
 	include('inc/header.html');
-}
-?>
-<h1>BookMarks screen</h1>
-<p>Hi <?php echo $_SESSION['name']?>, your categories and bookmarks:</p>
-
-<div id="categoriasMostrar">
-<p> Select Category </p>
-<select name="Categories" id="CAT">
-
-<?php 
-
-require('inc/mysqli_connect.php');
-$user=$_SESSION['id'];
-$q = "SELECT CATName, IDCategory FROM Categories WHERE Owner='$user'";
-$r = @mysqli_query ($dbc, $q);
-
-
-while ($row = mysqli_fetch_array($r, MYSQLI_NUM)) {
-	echo "<option value=\"$row[1]\">$row[0]</option>\n";
+	require('inc/management_functions.inc.php');
+	//array that stores user categories
+	$catArray = array();
+	//array that stores links from user categories
+	$linksArray = array();
+	//load database data to arrays
+	$catArray = getCategories($user);
+	getLinks($linksArray,$user);
 }
 
-
-
+if($_SERVER['REQUEST_METHOD']=='POST') {
+	//show Links
+	buildBookmarks($linksArray);
+}
 ?>
+<h1>Bookmarks screen</h1>
+<p>Hi <?php echo $user ?>, your categories and bookmarks are shown below:</p>
 
-</select>
+<div id="showCategories">
+	<p> Select Category </p>
+	<form action="main.php" method="POST">
+	<select name="Categories" id="CAT" onchange="this.form.submit()">
+		<?php  $catArray = getCategories($user);echo $catArray; buildCategories($catArray); ?>
+	</select>
+	</form>
 </div>
-
-<div id="enlacesMostrar">
 <p> Your links from the chosen category: </p>
+<div id="enlacesMostrar">
+	
 
-<table border="1">
-<?php
-$q1 = "SELECT LinkName, URL FROM Links INNER JOIN Categories ON Links.IDCategory=Categories.IDCategory WHERE Owner='$user'";
-$r1 = @mysqli_query ($dbc, $q1);
-
-
-while ($row = mysqli_fetch_array($r1, MYSQLI_NUM)) {
-	echo "<tr><td><a href=\"$row[1]\" target=\"_blank\">$row[0]</a></td><td id='nombre'>$row[1]</td><td><label><input type='radio' name='radio' value=\"$row[1]\">Editar</label></input></td></tr> ";
-}
-
-mysqli_free_result ($r); // Free up the resources.
-mysqli_close($dbc); // Close the database connection.
-?>
-</table>
 <?php include('inc/footer.html');?>

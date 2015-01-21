@@ -16,8 +16,9 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 		$_SESSION['id'] = $data['Email'];
 		$_SESSION['name'] = $data['Name'];
 		$_SESSION['logindate'] = $dt;
+		$_SESSION['IP'] = $_SERVER['REMOTE_ADDR'];
 		$id = $_SESSION['id'];
-		$IP = $_SERVER['REMOTE_ADDR'];
+		$IP = $_SESSION['IP'];
 		$insQuery="INSERT INTO Logs (Email,Time,IP) VALUES ('$id','$dt','$IP')";
 		mysqli_query($dbc,$insQuery);
 		//insert_log($db,$id,$dt); 

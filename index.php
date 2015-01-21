@@ -1,7 +1,6 @@
 <?php $page_title = "Welcome";
 include ('inc/header.html');
 ?>
-</nav>
 <?php 
 
 echo '<br/><br/><span id="log">';
