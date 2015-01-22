@@ -171,6 +171,21 @@ nav {
 	padding-top: 1%;*/
 	
 }
+#AddCategories {
+	float: left;
+	position: static;
+	
+	margin-left: 12%;
+	
+}
+#AddLinks {
+	float: right;
+	position: static;
+	
+	margin-right: 15%;
+
+	
+}
 
 #CAT  {
 	background-color:Teal;
