@@ -21,19 +21,19 @@ else {
 	$linksArray = getLinks($linksArray,$userid);
 }
 
-if($_SERVER['REQUEST_METHOD']=='POST') {
+/*if($_SERVER['REQUEST_METHOD']=='POST') {
+	//aquí debería ir el envío de datos para modificar /eliminar categorias y enlaces.
 	//show Links
 	echo "<div id=\"showLinks\">";
 	$currentCAT = $_POST['Categories'];
 	echo "<p> Links from category: ".$catArray[$currentCAT] ."</p>";
 	buildBookmarks($linksArray,$_POST['Categories']);
 	echo "</div>";
-}
+}*/
 ?>
 <div id="title">
 <h1>Bookmarks screen</h1>
 <p>Hi <?php echo $user ?>, your categories and bookmarks are shown below:</p>
-</div>
 <div id="showCategories">
 	<p> Select Category </p>
 	<form action="main.php" method="POST">
@@ -41,6 +41,15 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 		<?php $catArray = getCategories($userid);echo $catArray; buildCategories($catArray); ?>
 	</select>
 	</form>
-</div>
+	</div>
+	<div id="showLinks">
+	<?php
+		$currentCAT = $_POST['Categories'];
+		echo "<p> Links from category: ".$catArray[$currentCAT] ."</p>";	
+		buildBookmarks($linksArray,$currentCAT);
+	?> 
+	</div>
+
+
 
 <?php include('inc/footer.html');?>
