@@ -10,8 +10,9 @@ include('inc/header.html');
 /*Aquí se podrán realizar búsquedas por palabras (busqueda de enlaces, mostrara enlace y usuarios que la comparten),
 y también buscar usuarios (por email o nombre de usuario).*/
 ?>
-<div id="AddCategories">
 <h1>Add Bookmarks / Categories</h1>
+<div id="AddCategories">
+
 
 <h1>Add Categories</h1>
 <input type='textbox' name='CategoriesAdd'> 

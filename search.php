@@ -28,5 +28,6 @@ y también buscar usuarios (por email o nombre de usuario).*/
 <textarea cols='50' rows='4' name='LinkUrl'>Place your URL Here</textarea>
 <br/>
 <input type='submit' value='Send'>
-</div>
 <?php include('inc/footer.html');?>
+</div>
+
