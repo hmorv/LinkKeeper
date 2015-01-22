@@ -47,6 +47,8 @@ INSERT INTO Categories (Owner, CATName) VALUES ('david2@gmail.com','Cocina');
 
 INSERT INTO Links (LinkName,URL,CATParent) VALUES ('El Mundo','http://www.elmundo.es',1);
 INSERT INTO Links (LinkName,URL,CATParent) VALUES ('El Pais','http://www.elpais.es',1);
+INSERT INTO Links (LinkName,URL,CATParent) VALUES ('ABC','http://www.abc.es',1);
+INSERT INTO Links (LinkName,URL,CATParent) VALUES ('Público','http://www.publico.es',1);
 INSERT INTO Links (LinkName,URL,CATParent) VALUES ('Mes3','http://mes3daixa.blogspot.com',1);
 INSERT INTO Links (LinkName,URL,CATParent) VALUES ('Un cientifico en el lado del Mal','http://www.elladodelmal.com',2);
 INSERT INTO Links (LinkName,URL,CATParent) VALUES ('Google','http://google.es',4);

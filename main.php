@@ -17,13 +17,13 @@ else {
 	//array that stores links from user categories
 	$linksArray = array();
 	//load database data to arrays
-	$catArray = getCategories($user);
-	getLinks($linksArray,$user);
+	$catArray = getCategories($userid);
+	$linksArray = getLinks($linksArray,$userid);
 }
 
 if($_SERVER['REQUEST_METHOD']=='POST') {
 	//show Links
-	buildBookmarks($linksArray);
+	buildBookmarks($linksArray,$_POST['Categories']);
 }
 ?>
 <h1>Bookmarks screen</h1>
@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 	<p> Select Category </p>
 	<form action="main.php" method="POST">
 	<select name="Categories" id="CAT" onchange="this.form.submit()">
-		<?php  $catArray = getCategories($user);echo $catArray; buildCategories($catArray); ?>
+		<?php $catArray = getCategories($userid);echo $catArray; buildCategories($catArray); ?>
 	</select>
 	</form>
 </div>
