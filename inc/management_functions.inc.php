@@ -1,29 +1,41 @@
 <?php
 //this function builds a dropdownlist containing user's categories.
 function buildCategories($a) {
+	echo "<option selected value=\"\">Categories</option>";
 	foreach($a as $key => $value) {
 		echo $a; echo $key;
 		echo "<option value=\"$key\">$value</option>";
-		echo "JODER";
+		//echo "JODER";
 	}
-	
 }
 
 function buildBookmarks($a,$ccat) {
 	//this function builds a table showing Link names, URL and edit check.
-	echo "<table><tr>";
+	echo "<table class='linkTable'><tr>";
 	foreach($a as $key => $value) {
-		if($key==$ccat) {
+		if($value[2]==$ccat) {
+			echo "<tr>";
 			for($i = 0; $i < 2; $i++) {
 			//$b = $a["$ccat"];
 			//echo "<td>$b[$i]</td>";
-				echo "<td>$value[$i]</td>";
-			}		
+				if($i==0) {
+					echo "<td><a href=$value[1]>$value[$i]</a></td>";
+				}
+				else {
+				echo "<td>$value[$i]</td>";	
+				}
+				
+				//echo "dentro bucle";
+			}
+			echo "</tr>";
 		}
-		
+		//echo "bucle: $key - currentCat:$ccat";		
 	}
 	echo "</tr>";
 	echo "</table>";
+	/*foreach($a as $key => $value) {
+		echo "-$key-- $value[0] - $value[1] - $value[2] - $value[3] <br>";*/
+	
 }
 function getCategories($u) {
 	//this function receives an array and userid as arguments,
@@ -37,7 +49,6 @@ function getCategories($u) {
 			$key = $row['IDCategory'];
 			$value = $row['CATName'];
 			$cat["$key"] = $value;
-
 		}
 	}
 	else {

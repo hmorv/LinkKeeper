@@ -177,3 +177,10 @@ nav {
 #nombre {
 	color: white;
 }
+.linkTable {
+	background-color: cyan;
+	border:solid red 3px;
+}
+.linkTable td {
+	border:solid red 3px;
+}
