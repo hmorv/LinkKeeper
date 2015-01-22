@@ -24,12 +24,14 @@ function buildBookmarks($a,$ccat) {
 				
 				//echo "dentro bucle";
 			}
+			echo "<td><input type='checkbox' name='delete' value='$value[2]'/></td>";
 			echo "</tr>";
 		}
 		//echo "bucle: $key - currentCat:$ccat";		
 	}
 	echo "</tr>";
 	echo "</table>";
+	echo "<input type='button' onclick='eliminar();' value='Delete'/>";
 	/*foreach($a as $key => $value) {
 		echo "-$key-- $value[0] - $value[1] - $value[2] - $value[3] <br>";*/
 	
@@ -77,7 +79,7 @@ function getLinks($a, $u) {
 	}
 	mysqli_close($dbc);
 	return ($links);
-}
+}/*
 function fetchArray() {
 
 }
@@ -130,4 +132,5 @@ function buildArray($a) {
 	}
 	mysqli_close($dbc); // Close the database connection.
 }
+*/
 ?>
