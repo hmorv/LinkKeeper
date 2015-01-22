@@ -13,13 +13,13 @@ y también buscar usuarios (por email o nombre de usuario).*/
 <div id="AddCategories">
 <h1>Add Bookmarks / Categories</h1>
 
-<h1>Add Categories</h1>
+<p>Add Categories</p>
 <input type='textbox' name='CategoriesAdd'> 
 <input type='submit' value='Send'> 
 </div>
 
 <div id="AddLinks">
-<h1> Add Links:</h1>
+<p> Add Links:</p>
 <p> Select Link Name </p>
 <input type='text' name='LinkName'>
 <br/>
