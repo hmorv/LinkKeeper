@@ -67,7 +67,7 @@ INSERT INTO Links (LinkName,URL,CATParent) VALUES ('series.ly','http://series.ly
 INSERT INTO Links (LinkName,URL,CATParent) VALUES ('Battle_net','http://www.battle.net',6);
 INSERT INTO Links (LinkName,URL,CATParent) VALUES ('Hacking Ético','http://hacking-etico.com/',5);
 INSERT INTO Links (LinkName,URL,CATParent) VALUES ('forocoches','http://www.forocoches.com/',8);
-INSERT INTO Links (LinkName,URL,CATParent) VALUES ('Battle_net','http://www.battle.net',7);
+INSERT INTO Links (LinkName,URL,CATParent) VALUES ('Battle_net','http://www.battle.net',6);
 
 -- inserts david2
 INSERT INTO Links (LinkName,URL,CATParent) VALUES ('Wordpress IAW','http://andreurigo.eu/wp/xerrada-sobre-wordpress-a-sant-josep-obrer/',12);

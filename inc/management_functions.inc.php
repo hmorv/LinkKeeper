@@ -1,25 +1,22 @@
 <?php
 //this function builds a dropdownlist containing user's categories.
+//it receives $catArray as array parameter.
 function buildCategories($a) {
-	echo "<option selected value=\"\">Categories</option>";
+	echo "<option selected value=\"\">--Categories</option>";
 	foreach($a as $key => $value) {
-		echo $a; echo $key;
 		echo "<option value=\"$key\">$value</option>";
-		//echo "JODER";
 	}
 }
 
 function buildBookmarks($a,$ccat) {
-	//this function builds a table showing Link names, URL and edit check.
-	echo "<table class='linkTable'><tr>";
+	//this function builds a table showing Link names, URL and (not ready)edit check.
+	echo "<table class='linkTable'>";
 	foreach($a as $key => $value) {
 		if($value[2]==$ccat) {
 			echo "<tr>";
 			for($i = 0; $i < 2; $i++) {
-			//$b = $a["$ccat"];
-			//echo "<td>$b[$i]</td>";
 				if($i==0) {
-					echo "<td><a href=$value[1]>$value[$i]</a></td>";
+					echo "<td><a href=$value[1] target='_blank'>$value[$i]</a></td>";
 				}
 				else {
 				echo "<td>$value[$i]</td>";	
@@ -64,10 +61,7 @@ function getLinks($a, $u) {
 	$query = "SELECT L.IDLink, L.LinkName, L.URL, L.CATParent FROM Links AS L INNER JOIN Categories AS C ON L.CATParent=C.IDCategory WHERE Owner='$u'";
 	$result = mysqli_query($dbc,$query);
 	if($result) {
-		echo mysqli_num_rows($result);
-		
 		while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
-			
 			$IDLink = $row['IDLink'];
 			$LinkName = $row['LinkName'];
 			$URL = $row['URL'];
@@ -76,7 +70,6 @@ function getLinks($a, $u) {
 			$links["$IDLink"][1] = $URL;
 			$links["$IDLink"][2] = $CATParent;
 		}
-
 	}
 	else {
 		echo "ERROR con la query!";

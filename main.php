@@ -23,12 +23,17 @@ else {
 
 if($_SERVER['REQUEST_METHOD']=='POST') {
 	//show Links
+	echo "<div id=\"showLinks\">";
+	$currentCAT = $_POST['Categories'];
+	echo "<p> Links from category: ".$catArray[$currentCAT] ."</p>";
 	buildBookmarks($linksArray,$_POST['Categories']);
+	echo "</div>";
 }
 ?>
+<div id="title">
 <h1>Bookmarks screen</h1>
 <p>Hi <?php echo $user ?>, your categories and bookmarks are shown below:</p>
-
+</div>
 <div id="showCategories">
 	<p> Select Category </p>
 	<form action="main.php" method="POST">
@@ -37,8 +42,5 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 	</select>
 	</form>
 </div>
-<p> Your links from the chosen category: </p>
-<div id="enlacesMostrar">
-	
 
 <?php include('inc/footer.html');?>
