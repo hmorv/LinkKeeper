@@ -1,7 +1,7 @@
 body {
 	/*text-align: center;*/
 	margin: 0 auto;
-	background-color: Teal;
+	background-color: Black;
 }
 #container {
 	border: solid 6px black;
