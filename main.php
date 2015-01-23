@@ -62,7 +62,9 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 			?> 
 		</form>
 	</div>
+</div>
 
 
 
-	<?php include('inc/footer.html');?>
+
+<?php include('inc/footer.html');?>
