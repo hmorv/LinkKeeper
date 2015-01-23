@@ -17,15 +17,15 @@ if(isset($errors) && !empty($errors)) {
 	<form name="login" method="post" action="login.php">
 		<table>
 			<tr>
-				<td>User e-Mail:</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User e-Mail:</td>
 				<td><input name="user" type="text" id="user" maxlength="70"/></td>
 			</tr>
 			<tr>
-				<td>Password:</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password: </td>
 				<td><input name="pass" type="password" id="pass" maxlength="20" /><br /></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="Log In"/></td>
+				<td colspan="2"><input type="submit" value="Log In" id="botonlogin"/></td>
 			</tr>
 		</table>
 

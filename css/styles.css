@@ -39,6 +39,9 @@ body {
 	width: 100%;
 	background-color: #000;
 	color:#ed055f;
+	position:relative;
+	text-align: center;
+
 }
 #content a {
 	text-decoration: none;
@@ -78,6 +81,7 @@ nav {
 	clear:both;
 	background-color: black;
 	color:#ab0e47;
+	text-align: center;
 }
 
 #login {
@@ -88,13 +92,14 @@ nav {
 	text-align: center;
 	background-color: silver;
 	border-color: red;
+
 }
 #login input {
 	background-color: black;
 	color:white;
 	font-weight: bolder;
-	text-align: right;
-}
+	text-align: right;}
+
 
 #Container2 {
 	border: solid 6px black;
@@ -214,4 +219,17 @@ nav {
 #title {
 	width:100%;
 
+}
+
+#botonlogin {
+	margin-left: 3%;
+	float: right;
+}
+
+#user {
+	margin-left: 30%;
+}
+
+#pass {
+	margin-left: 30%;
 }
