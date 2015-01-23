@@ -5,11 +5,19 @@ if(!isset($_SESSION['id'])) {
 	require('inc/login_functions.inc.php');
 	redirect_user('index.php');
 }
-$page_title = "Add";
-include('inc/header.html');
-/*Aquí se podrán realizar búsquedas por palabras (busqueda de enlaces, mostrara enlace y usuarios que la comparten),
-y también buscar usuarios (por email o nombre de usuario).*/
+	require('inc/management_functions.inc.php');
+	//array that stores user categories
+	$catArray = array();
+	//array that stores links from user categories
+	$linksArray = array();
+	//load database data to arrays
+	$catArray = getCategories($userid);
+	$linksArray = getLinks($linksArray,$userid);
+	$userid = $_SESSION['id'];
+	$page_title = "Add";
+	include('inc/header.html');
 ?>
+
 <h1>Add Bookmarks / Categories</h1>
 <form id='SendCat' method='POST' action='<?php $_SERVER['PHP_SELF']; ?>'>
 <div id="AddCategories">
@@ -37,21 +45,31 @@ mysqli_close($dbc);
 }
 
 ?>
-	<input type='submit' value='Send'> 
+<input type='submit' value='Send'> 
 </div>
 </form>
 
 
+<form id='SendIns' method='POST' action='<?php $_SERVER['PHP_SELF']; ?>'>
 <div id="AddLinks">
 	<h1> Add Links:</h1>
+	<br/>
+
+	<p> Select Category </p>
+	<select name="Categories" id="CAT">
+		<?php $catArray = getCategories($userid);echo $catArray; buildCategories($catArray); ?>
+	</select>
+
 	<p> Select Link Name </p>
 	<input type='text' name='LinkName'>
 	<br/>
+
 	<p> Insert Url </p>
 	<textarea cols='50' rows='4' name='LinkUrl'>Place your URL Here</textarea>
 	<br/>
 	<input type='submit' value='Send'>
 </div>
+</form>
 <?php include('inc/footer.html');?>
 
 
