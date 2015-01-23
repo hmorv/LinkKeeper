@@ -1,7 +1,7 @@
 body {
 	/*text-align: center;*/
 	margin: 0 auto;
-	background-color: black;
+	background-color: Black;
 }
 #container {
 	border: solid 6px black;
@@ -197,12 +197,13 @@ nav {
 }
 
 #CAT  {
-	background-color:Teal;
-	width: 200px;
-	height: 50px;
+	background-color:Silver;
+	width: 150px;
+	height: 25px;
 	text-align: left;
-	border-radius: 25%;
-	text-indent: 5em;
+	border-radius: 10%;
+	text-indent: 2em;
+	border-color: red;
 }
 
 #nombre {
