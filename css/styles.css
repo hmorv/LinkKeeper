@@ -10,8 +10,8 @@ body {
 }
 #header {
 	background-image: url("../img/2.jpg");
-	margin-left: 5%;
-	width: 1200%;
+	margin-left: 15%;
+	width: 1200px;
 	height: 250px;
 	font-size: 2em;
 	position: relative;
