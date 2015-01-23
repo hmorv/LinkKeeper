@@ -210,11 +210,14 @@ nav {
 	color: white;
 }
 .linkTable {
-	background-color: cyan;
-	border:solid red 3px;
+	background-color: Black;
+	border:thin red 3px;
+	color:white;
 }
+
 .linkTable td {
-	border:solid red 3px;
+	border:solid #ab0e47 3px;
+	color:white;
 }
 
 #title {

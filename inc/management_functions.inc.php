@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			echo "<tr>";
 			for($i = 0; $i < 2; $i++) {
 				if($i==0) {
-					echo "<td><a href=$value[1] target='_blank'>$value[$i]</a></td>";
+					echo "<td><a id='enlace' href=$value[1] target='_blank'>$value[$i]</a></td>";
 				}
 				else {
 				echo "<td>$value[$i]</td>";	
@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				
 				//echo "dentro bucle";
 			}
+		
 			echo "<td><input type='checkbox' name='delete[]' value='$value[2]'/></td>";
 			echo "</tr>";
 		}
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	}
 	echo "</tr>";
 	echo "</table>";
-
+		echo "<br/>";
 		echo "<input type='submit' value='Delete'/>";
 }
 	/*foreach($a as $key => $value) {
