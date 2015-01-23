@@ -10,11 +10,12 @@
 </head>
 <body>
 	<div id="container">
-		<div id="header">				
+		<div id="header">
+		
 		</div>
 		<div id="content">
-		<nav>			
-				<?php
+		<nav>
+		<?php
 				if(isset($_SESSION['id'])) {
 					echo "<a href='logout.php'><span>Logout</span></a>";
 					echo "<a href='main.php'><span>Main</span></a>";
@@ -26,6 +27,6 @@
 					echo "<a href='index.php'><span>Main page</span></a>";
 					echo "<a href='register.php'><span>Register</span></a>";
 				}
-				?>
+				?>				
 				</nav>
 				<!--<div id="main">-->

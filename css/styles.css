@@ -10,11 +10,14 @@ body {
 }
 #header {
 	background-image: url("../img/2.jpg");
-	width: 1200px;
+	margin-left: 5%;
+	width: 1200%;
 	height: 250px;
 	font-size: 2em;
 	position: relative;
-	margin-left: 5%;
+	/*left:50%;
+	right:50%;*/
+	margin: 0 auto;
 	padding-bottom: 1%;
 	background-repeat: no-repeat;
 	
