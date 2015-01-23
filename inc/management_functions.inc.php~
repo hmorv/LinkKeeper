@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			echo "<tr>";
 			for($i = 0; $i < 2; $i++) {
 				if($i==0) {
-					echo "<td><a id='enlace' href=$value[1] target='_blank'>$value[$i]</a></td>";
+					echo "<td><a href=$value[1] target='_blank'>$value[$i]</a></td>";
 				}
 				else {
 				echo "<td>$value[$i]</td>";	

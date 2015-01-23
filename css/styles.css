@@ -170,8 +170,7 @@ nav {
 	float: right;
 	position: static;
 	top:300px;
-	margin-right: 5%;
-	overflow: auto;
+	margin-right: 10%;
 	
 }
 #AddCategories {
@@ -204,11 +203,14 @@ nav {
 	color: white;
 }
 .linkTable {
-	background-color: cyan;
-	border:solid red 3px;
+	background-color: Black;
+	border:thin red 3px;
+	color:white;
 }
+
 .linkTable td {
-	border:solid red 3px;
+	border:solid #ab0e47 3px;
+	color:white;
 }
 
 #title {
@@ -227,4 +229,9 @@ nav {
 
 #pass {
 	margin-left: 30%;
+}
+
+#Successfully {
+	margin-left: -10%;
+	margin-top: -10%;
 }

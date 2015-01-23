@@ -12,7 +12,11 @@ if(isset($_SESSION['id'])) {
 	include('inc/header.html');
 	if($_SERVER['METHOD']=='POST') {
 		require('inc/validation_functions.inc.php');
-		//validar campos
+
+		//if(validate()) {
+		//insertUser();
+		
+	}
 		//enviar datos
 		//lectura resultados
 		//visualizacion resultados

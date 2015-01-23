@@ -35,7 +35,7 @@ $q = "INSERT INTO Categories (Owner, CATName)
 VALUES ('$Owner', '$CATINS')";
 
 if ($dbc->query($q) === TRUE) {
-    echo "New category created successfully";
+    echo "<p id='Successfully'>New category created successfully</p>";
 } else {
     echo "Error: " . $q . "<br>" . $dbc->error;
 }
@@ -81,7 +81,7 @@ $q = "INSERT INTO Links (LinkName, URL, CATParent)
 VALUES ('$LinkName', '$URL', '$Category')";
 
 if ($dbc->query($q) === TRUE) {
-    echo "New Link Added Successfully";
+    echo "<p id='Successfully'>New Link Added Successfully</p>";
 } else {
     echo "Error: " . $q . "<br>" . $dbc->error;
 }

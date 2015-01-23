@@ -57,7 +57,7 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 		<form name="formLinks" action="" method="POST">
 			<?php
 			$currentCAT = $_POST['Categories'];
-			echo "Links from category: ". "<h1>".$catArray[$currentCAT]."</h1>";	
+			echo "<p> Links from category: ". "<h1>".$catArray[$currentCAT]."</h1>"."</p>";	
 			buildBookmarks($linksArray,$currentCAT);
 			?> 
 		</form>
