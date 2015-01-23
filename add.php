@@ -16,7 +16,9 @@ y también buscar usuarios (por email o nombre de usuario).*/
 	<h1>Add Categories</h1>
 	<input type='textbox' name='CategoriesAdd'> 
 <?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+	// Handle the form.
 require('inc/mysqli_connect.php');
 $CATINS = $_POST['CategoriesAdd'];
 $Owner = $_SESSION['id'];
@@ -31,6 +33,9 @@ if ($dbc->query($q) === TRUE) {
 }
 
 mysqli_close($dbc);
+	
+}
+
 ?>
 	<input type='submit' value='Send'> 
 </div>
