@@ -53,10 +53,9 @@ mysqli_close($dbc);
 <form id='SendIns' method='POST' action='<?php $_SERVER['PHP_SELF']; ?>'>
 <div id="AddLinks">
 	<h1> Add Links:</h1>
-	<br/>
 
 	<p> Select Category </p>
-	<select name="Categories" id="CAT">
+	<select name="Categories">
 		<?php $catArray = getCategories($userid);echo $catArray; buildCategories($catArray); ?>
 	</select>
 
@@ -67,6 +66,31 @@ mysqli_close($dbc);
 	<p> Insert Url </p>
 	<textarea cols='50' rows='4' name='LinkUrl'>Place your URL Here</textarea>
 	<br/>
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+	// Handle the form.
+	require('inc/mysqli_connect.php');
+
+$Category = $_POST['Categories'];
+$LinkName = $_POST['LinkName'];
+$URL = $_POST['LinkUrl'];
+
+
+$q = "INSERT INTO Links (LinkName, URL, CATParent)
+VALUES ('$LinkName', '$URL', '$Category')";
+
+if ($dbc->query($q) === TRUE) {
+    echo "New Link Added Successfully";
+} else {
+    echo "Error: " . $q . "<br>" . $dbc->error;
+}
+
+mysqli_close($dbc);
+	
+}
+
+?>
 	<input type='submit' value='Send'>
 </div>
 </form>

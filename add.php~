@@ -13,7 +13,7 @@ if(!isset($_SESSION['id'])) {
 	//load database data to arrays
 	$catArray = getCategories($userid);
 	$linksArray = getLinks($linksArray,$userid);
-
+	$userid = $_SESSION['id'];
 	$page_title = "Add";
 	include('inc/header.html');
 ?>
@@ -53,10 +53,10 @@ mysqli_close($dbc);
 <form id='SendIns' method='POST' action='<?php $_SERVER['PHP_SELF']; ?>'>
 <div id="AddLinks">
 	<h1> Add Links:</h1>
-	<br/>
+	
 
 	<p> Select Category </p>
-	<select name="Categories" id="CAT">
+	<select name="Categories" id="CATADD">
 		<?php $catArray = getCategories($userid);echo $catArray; buildCategories($catArray); ?>
 	</select>
 
