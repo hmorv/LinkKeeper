@@ -24,7 +24,7 @@ if(!isset($_SESSION['id'])) {
 	<h1>Add Categories</h1>
 	<input type='textbox' name='CategoriesAdd'> 
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['CategoriesAdd'])) {
 
 	// Handle the form.
 require('inc/mysqli_connect.php');
@@ -67,7 +67,7 @@ mysqli_close($dbc);
 	<textarea cols='50' rows='4' name='LinkUrl'>Place your URL Here</textarea>
 	<br/>
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['LinkName']) && !empty($_POST['LinkUrl'])) {
 
 	// Handle the form.
 	require('inc/mysqli_connect.php');
