@@ -3,7 +3,8 @@ CREATE DATABASE LinkKeeperDB;
 USE LinkKeeperDB;
 
 CREATE TABLE Users (
-	Name VARCHAR(10) NOT NULL,
+	-- Name es en realidad nickname, por eso debe ser único
+	Name VARCHAR(10) NOT NULL UNIQUE,
 	Email VARCHAR(70) NOT NULL,
 	Pass VARCHAR(40) NOT NULL,
 	PRIMARY KEY (Email)

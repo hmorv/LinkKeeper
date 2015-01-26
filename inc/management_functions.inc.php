@@ -19,12 +19,12 @@ function buildBookmarks($a,$ccat) {
 					echo "<td><a href=$value[1] target='_blank'>$value[$i]</a></td>";
 				}
 				else {
-				echo "<td>$value[$i]</td>";	
+				echo "<td>$value[$i]-$key</td>";	
 				}
 				
 				//echo "dentro bucle";
 			}
-			echo "<td><input type='checkbox' name='delete[]' value='$value[2]'/></td>";
+			echo "<td><input type='checkbox' name='delete[]' value='$key'/></td>";
 			echo "</tr>";
 		}
 		//echo "bucle: $key - currentCat:$ccat";		
@@ -68,9 +68,12 @@ function getLinks($a, $u) {
 			$LinkName = $row['LinkName'];
 			$URL = $row['URL'];
 			$CATParent = $row['CATParent'];
+			$IDURL = $row['IDLink'];
 			$links["$IDLink"][0] = $LinkName;
 			$links["$IDLink"][1] = $URL;
 			$links["$IDLink"][2] = $CATParent;
+			//se puede quitar...creo....
+			$links["$IDLink"][3] = $IDURL;
 		}
 	}
 	else {
@@ -84,7 +87,8 @@ function getLinks($a, $u) {
 function eliminar($i) {
 	require('inc/mysqli_connect.php');
 	echo "dentro de eliminar()";
-	$query = "DELETE FROM Links WHERE IDLink = '$i'";
+	$query = "DELETE FROM Links WHERE IDLink = $i";
+	echo $query;
 	$result = mysqli_query($dbc,$query);
 	if($result) {
 		return true;
