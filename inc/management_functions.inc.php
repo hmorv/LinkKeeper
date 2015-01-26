@@ -19,7 +19,7 @@ function buildBookmarks($a,$ccat) {
 					echo "<td><a href=$value[1] target='_blank'>$value[$i]</a></td>";
 				}
 				else {
-				echo "<td>$value[$i]-$key</td>";	
+				echo "<td>$value[$i]</td>";	
 				}
 				
 				//echo "dentro bucle";
