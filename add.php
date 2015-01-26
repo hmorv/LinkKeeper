@@ -90,7 +90,7 @@ include('inc/header.html');
 
 		}
 		else {
-			echo "<p class=\"error\">Link $LinkName coudn't be inserted.";
+			//echo "<p class=\"error\">Link $LinkName coudn't be inserted.";
 		}
 		?>
 		<input type='submit' value='Send'>
