@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			echo "<tr>";
 			for($i = 0; $i < 2; $i++) {
 				if($i==0) {
-					echo "<td><a id='enlace' href=$value[1] target='_blank'>$value[$i]</a></td>";
+					echo "<td><a href=$value[1] target='_blank'>$value[$i]</a></td>";
 				}
 				else {
 				echo "<td>$value[$i]</td>";	
@@ -25,12 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				
 				//echo "dentro bucle";
 			}
-<<<<<<< HEAD
-			echo "<td><input type='checkbox' name='delete[]' value='$key'/></td>";
-=======
 		
 			echo "<td><input type='checkbox' name='delete[]' value='$value[2]'/></td>";
->>>>>>> FETCH_HEAD
 			echo "</tr>";
 		}
 		//echo "bucle: $key - currentCat:$ccat";		
@@ -76,12 +72,9 @@ function getLinks($a, $u) {
 			$LinkName = $row['LinkName'];
 			$URL = $row['URL'];
 			$CATParent = $row['CATParent'];
-			$IDURL = $row['IDLink'];
 			$links["$IDLink"][0] = $LinkName;
 			$links["$IDLink"][1] = $URL;
 			$links["$IDLink"][2] = $CATParent;
-			//se puede quitar...creo....
-			$links["$IDLink"][3] = $IDURL;
 		}
 	}
 	else {
@@ -95,8 +88,7 @@ function getLinks($a, $u) {
 function eliminar($i) {
 	require('inc/mysqli_connect.php');
 	echo "dentro de eliminar()";
-	$query = "DELETE FROM Links WHERE IDLink = $i";
-	echo $query;
+	$query = "DELETE FROM Links WHERE IDLink = '$i'";
 	$result = mysqli_query($dbc,$query);
 	if($result) {
 		return true;
