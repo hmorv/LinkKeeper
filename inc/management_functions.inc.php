@@ -10,36 +10,26 @@ function buildCategories($a) {
 
 function buildBookmarks($a,$ccat) {
 	//this function builds a table showing Link names, URL and (not ready)edit check.
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	echo "<table class='linkTable'>";
 	foreach($a as $key => $value) {
 		if($value[2]==$ccat) {
 			echo "<tr>";
 			for($i = 0; $i < 2; $i++) {
 				if($i==0) {
-					echo "<td><a id='enlace' href=$value[1] target='_blank'>$value[$i]</a></td>";
+					echo "<td><a href=$value[1] target='_blank'>$value[$i]</a></td>";
 				}
 				else {
 				echo "<td>$value[$i]</td>";	
 				}
-				
-				//echo "dentro bucle";
 			}
-<<<<<<< HEAD
 			echo "<td><input type='checkbox' name='delete[]' value='$key'/></td>";
-=======
-		
-			echo "<td><input type='checkbox' name='delete[]' value='$value[2]'/></td>";
->>>>>>> FETCH_HEAD
 			echo "</tr>";
 		}
 		//echo "bucle: $key - currentCat:$ccat";		
 	}
 	echo "</tr>";
 	echo "</table>";
-		echo "<br/>";
-		echo "<input type='submit' value='Delete'/>";
-}
+	echo "<input type='submit' value='Delete'/>";
 	/*foreach($a as $key => $value) {
 		echo "-$key-- $value[0] - $value[1] - $value[2] - $value[3] <br>";*/
 	
@@ -76,6 +66,7 @@ function getLinks($a, $u) {
 			$LinkName = $row['LinkName'];
 			$URL = $row['URL'];
 			$CATParent = $row['CATParent'];
+			//se puede quitar...creo....
 			$IDURL = $row['IDLink'];
 			$links["$IDLink"][0] = $LinkName;
 			$links["$IDLink"][1] = $URL;
