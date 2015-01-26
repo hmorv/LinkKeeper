@@ -1,10 +1,9 @@
 body {
-	/*text-align: center;*/
 	margin: 0 auto;
-	background-color: Black;
+	background-color: black;
 }
 #container {
-	border: solid 6px black;
+	background-color: #1d1e19;
 	width:100%;
 	position: absolute;
 }
@@ -37,7 +36,7 @@ body {
 #content {
 	border-radius: 1%;
 	width: 100%;
-	background-color: #000;
+	background-color: #001;
 	color:#ed055f;
 	position:relative;
 	text-align: center;
