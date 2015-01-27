@@ -17,11 +17,29 @@ function validatePass($p) {
 		$pattern = '((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})';
 		return preg_match($pattern, $p);
 	}
-	function checkDBName($mail) {
-		return null;
+	function checkDBName($m) {
+		require('inc/mysqli_connect.php');
+		$query = "SELECT Email FROM Users WHERE Email = '$m'";
+		$result = @mysqli_query($dbc,$query);
+		//check if no rows, email can be used to register.
+		if($result) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
-	function checkDBUser($username) {
-		return null;
+	function checkDBUser($u) {
+		require('inc/mysqli_connect.php');
+		$query = "SELECT Name FROM Users WHERE Name = '$u'";
+		$result = @mysqli_query($dbc,$query);
+		//check if no rows, email can be used to register.
+		if($result) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	?>
