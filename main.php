@@ -22,9 +22,9 @@ else {
 }
 
 if($_SERVER['REQUEST_METHOD']=='POST') {
-	echo "dentro post<br>";
+//	echo "dentro post<br>";
 	if(!empty($_POST['delete'])) {
-		echo "dentro formLinks<br>";
+	//	echo "dentro formLinks<br>";
 		$todelete = $_POST['delete'];
 		//echo $todelete;
 		echo(count($todelete));
