@@ -22,23 +22,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				else {
 				echo "<td>$value[$i]</td>";	
 				}
-				
-				//echo "dentro bucle";
 			}
-		
-			echo "<td><input type='checkbox' name='delete[]' value='$value[2]'/></td>";
+			echo "<td><input type='checkbox' name='delete[]' value='$key'/></td>";
 			echo "</tr>";
 		}
 		//echo "bucle: $key - currentCat:$ccat";		
 	}
 	echo "</tr>";
 	echo "</table>";
-		echo "<br/>";
-		echo "<input type='submit' value='Delete'/>";
-}
+	echo "<input type='submit' value='Delete'/>";
 	/*foreach($a as $key => $value) {
 		echo "-$key-- $value[0] - $value[1] - $value[2] - $value[3] <br>";*/
-	
+}	
 }
 function getCategories($u) {
 	//this function receives an array and userid as arguments,
@@ -72,9 +67,13 @@ function getLinks($a, $u) {
 			$LinkName = $row['LinkName'];
 			$URL = $row['URL'];
 			$CATParent = $row['CATParent'];
+			//se puede quitar...creo....
+			$IDURL = $row['IDLink'];
 			$links["$IDLink"][0] = $LinkName;
 			$links["$IDLink"][1] = $URL;
 			$links["$IDLink"][2] = $CATParent;
+			//se puede quitar...creo....
+			$links["$IDLink"][3] = $IDURL;
 		}
 	}
 	else {
@@ -88,7 +87,8 @@ function getLinks($a, $u) {
 function eliminar($i) {
 	require('inc/mysqli_connect.php');
 	echo "dentro de eliminar()";
-	$query = "DELETE FROM Links WHERE IDLink = '$i'";
+	$query = "DELETE FROM Links WHERE IDLink = $i";
+	echo $query;
 	$result = mysqli_query($dbc,$query);
 	if($result) {
 		return true;

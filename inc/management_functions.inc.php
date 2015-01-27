@@ -10,6 +10,7 @@ function buildCategories($a) {
 
 function buildBookmarks($a,$ccat) {
 	//this function builds a table showing Link names, URL and (not ready)edit check.
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	echo "<table class='linkTable'>";
 	foreach($a as $key => $value) {
 		if($value[2]==$ccat) {
@@ -32,7 +33,7 @@ function buildBookmarks($a,$ccat) {
 	echo "<input type='submit' value='Delete'/>";
 	/*foreach($a as $key => $value) {
 		echo "-$key-- $value[0] - $value[1] - $value[2] - $value[3] <br>";*/
-	
+}	
 }
 function getCategories($u) {
 	//this function receives an array and userid as arguments,
