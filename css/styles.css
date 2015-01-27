@@ -3,7 +3,7 @@ body {
 	background-color: black;
 }
 #container {
-	background-color: #1d1e19;
+	background-color: black;
 	width:100%;
 	position: absolute;
 }
@@ -36,7 +36,7 @@ body {
 #content {
 	border-radius: 1%;
 	width: 100%;
-	background-color: #001;
+	background-color: black;
 	color:#ed055f;
 	position:relative;
 	text-align: center;
