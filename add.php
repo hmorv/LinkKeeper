@@ -67,7 +67,7 @@ include('inc/header.html');
 		<textarea cols='50' rows='4' name='LinkUrl'>Place your URL Here</textarea>
 		<br/>
 		<?php
-		if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['LinkName']) && !empty($_POST['LinkUrl']) && !empty($_POST['Categories'])) {
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	// Handle the form.
 			require('inc/mysqli_connect.php');
@@ -80,18 +80,23 @@ include('inc/header.html');
 			$q = "INSERT INTO Links (LinkName, URL, CATParent)
 			VALUES ('$LinkName', '$URL', '$Category')";
 
-			if ($dbc->query($q) === TRUE) {
+			if ($dbc->query($q) === TRUE && !empty($_POST['LinkName']) && !empty($_POST['LinkUrl']) && !empty($_POST['Categories'])) {
 				echo "<p id='Successfully'>New Link $LinkName Added Successfully to $Category category.</p>";
-			} else {
-				echo "Error: " . $q . "<br>" . $dbc->error;
+			}
+			else {
+				echo "<p id=\"errorlinks\">";
+				echo "Error: " . $q ."<br/>" . $dbc->error . "Link $LinkName coudn't be inserted." . "<br/>";
+				echo "</p>";
+					
 			}
 
 			mysqli_close($dbc);
 
 		}
-		else {
-			//echo "<p class=\"error\">Link $LinkName coudn't be inserted.";
-		}
+	//	else {
+			
+	//	}
+	
 		?>
 		<input type='submit' value='Send'>
 	</div>
