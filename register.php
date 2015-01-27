@@ -16,23 +16,23 @@ else {
 	$page_title = "Register";
 	include('inc/header.html');
 	require('inc/validation_functions.inc.php');
-	$mail = NULL;
-	$username = NULL;
-	$pass = NULL;
-	if($_SERVER['METHOD']=='POST') {
+	echo "joder";
+	if($_SERVER['REQUEST_METHOD']=='POST') {
+		echo "dentro de  post";
 		$errors = array();
 		$mail = trim($_POST['formMail']);
-		$username =trim($_POST['formUser']);
-		$pass =;trim($_POST['formPass']);
-		require('inc/validation_functions.inc.php');
+		$username = trim($_POST['formUser']);
+		$pass = trim($_POST['formPass']);
+		echo $mail . $username . $pass;
 		
 		if(validateMail($mail) && validateUserName($username) && validatePass($pass)) {
 			echo "validado!";
 			if(checkDBMail($mail) && checkDBUser($username)) {
-				insDB($user);
+				//insert user
+				//insDB($user);
 			}
 			else {
-				showError($email,$userName);
+				//showError($email,$userName);
 			}
 		}
 		else {
@@ -40,9 +40,10 @@ else {
 			//showError($registerForm);
 		}
 	}
+}
 ?>
 <div id="login">
-	<form name="register" method="POST" action="register.php">
+	<form name="register" method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
 		<table>
 			<tr>
 				<td>e-Mail account</td>
@@ -50,20 +51,16 @@ else {
 			</tr>
 			<tr>
 				<td>Bookmarker Name</td>
-				<td><input name="formUser" type="text"  maxlength="10"/></td>
+				<td><input name="formUser" type="text"  maxlength="20"/></td>
 			</tr>
 			<tr>
 				<td>Password</td>
 				<td><input name="formPass" type="password"  maxlength="20"/></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="send"></input></td>
+				<td colspan="2"><input type="submit" value="register"></input></td>
 			</tr>
 		</table>
 	</form>
 </div>
 <?php include('inc/footer.html');?>
-
-
-
-

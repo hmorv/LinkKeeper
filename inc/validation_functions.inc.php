@@ -6,7 +6,6 @@ function validateMail($m) {
 function validateUserName($u) {
 	$pattern = '/^\w{3,20}$/';
 	return preg_match($pattern, $u);
-	}
 }
 function validatePass($p) {
 	/*this is quite tricky...
@@ -15,14 +14,14 @@ function validatePass($p) {
 		-1 lowercase character
 		-1 uppercase character
 	*/
-	$pattern = '((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})';
-	return preg_match($pattern, $p);
-}
-function checkDBName($mail) {
-	return null;
-}
-function checkDBUser($username) {
-	return null;
-}
+		$pattern = '((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})';
+		return preg_match($pattern, $p);
+	}
+	function checkDBName($mail) {
+		return null;
+	}
+	function checkDBUser($username) {
+		return null;
+	}
 
-?>
+	?>
