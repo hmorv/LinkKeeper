@@ -5,8 +5,11 @@ if(isset($_SESSION['id'])) {
 	exit();
 }
 /*PENDIENTE:
-	Validacion campos del formulario.
-	Procesar formulario
+	Validacion campos del formulario...(funciones encapsuladas en otro php)
+	Procesar formulario (misma pagina, claro está....)
+	Si registro OK, vamos a loggedin o le obligamos a pasar por login.php?
+	si registro no OK, idem.
+	tabla de registro de registros en mysql?!?!?!??!?!
 */
 	$page_title = "Register";
 	include('inc/header.html');
