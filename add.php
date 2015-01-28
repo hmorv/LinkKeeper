@@ -15,7 +15,7 @@ $catArray = getCategories($userid);
 $linksArray = getLinks($linksArray,$userid);
 $userid = $_SESSION['id'];
 $page_title = "Add";
-include('inc/header.html');
+include('inc/header.php');
 ?>
 
 <h1>Add Bookmarks / Categories</h1>
@@ -108,6 +108,6 @@ include('inc/header.html');
 		<input type='submit' value='Send' name='submitLinks'>
 	</div>
 </form>
-<?php include('inc/footer.html');?>
+<?php include('inc/footer.php');?>
 
 

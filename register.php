@@ -14,7 +14,7 @@ else {
 	tabla de registro de registros en mysql?!?!?!??!?!
 */
 	$page_title = "Register";
-	include('inc/header.html');
+	include('inc/header.php');
 	require('inc/validation_functions.inc.php');
 	if($_SERVER['REQUEST_METHOD']=='POST') {
 		$errors = array();
@@ -84,4 +84,4 @@ else {
 		</table>
 	</form>
 </div>
-<?php include('inc/footer.html');?>
+<?php include('inc/footer.php');?>

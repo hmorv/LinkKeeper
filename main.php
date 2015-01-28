@@ -10,7 +10,7 @@ else {
 	$page_title = "Main";
 	$userid = $_SESSION['id'];
 	$user = $_SESSION['name'];
-	include('inc/header.html');
+	include('inc/header.php');
 	require('inc/management_functions.inc.php');
 	//array that stores user categories
 	$catArray = array();
@@ -78,4 +78,4 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 
 
 
-<?php include('inc/footer.html');?>
+<?php include('inc/footer.php');?>

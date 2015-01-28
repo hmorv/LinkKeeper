@@ -1,6 +1,6 @@
 <?php
 $page_title = 'Login form';
-include('inc/header.html');
+include('inc/header.php');
 
 //check if is there any error to display
 if(isset($errors) && !empty($errors)) {
@@ -31,4 +31,4 @@ if(isset($errors) && !empty($errors)) {
 
 	</form>
 </div>
-<?php include('inc/footer.html');
+<?php include('inc/footer.php');

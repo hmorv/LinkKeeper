@@ -8,9 +8,9 @@
 	else {
 		$_SESSION=array();
 		session_destroy();
-		include('inc/header.html');
+		include('inc/header.php');
 		//setcookie ('PHPESSID',date('Y-m-d H:i:s'),NULL,'/','',0,0);
 	}
 	echo "<div id=\"message\"><h1>You are logged out!</h1><p>See you soon!!</p></div>";
-	include('inc/footer.html');
+	include('inc/footer.php');
 ?>

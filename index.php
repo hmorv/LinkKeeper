@@ -1,5 +1,6 @@
-<?php $page_title = "Welcome";
-include ('inc/header.html');
+<?php
+$page_title = "Welcome";
+include ('inc/header.php');
 ?>
 <?php 
 
@@ -20,5 +21,5 @@ if(isset($_SESSION['id'])) {
 		
 
 <?php
-include('inc/footer.html');
+include('inc/footer.php');
 ?>
