@@ -17,12 +17,12 @@ function validatePass($p) {
 		$pattern = '((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})';
 		return preg_match($pattern, $p);
 	}
-	function checkDBName($m) {
+	function checkDBMail($m) {
 		require('inc/mysqli_connect.php');
 		$query = "SELECT Email FROM Users WHERE Email = '$m'";
 		$result = @mysqli_query($dbc,$query);
 		//check if no rows, email can be used to register.
-		if($result) {
+		if(mysqli_num_rows($result) == 0) {
 			return true;
 		}
 		else {
@@ -33,7 +33,19 @@ function validatePass($p) {
 		require('inc/mysqli_connect.php');
 		$query = "SELECT Name FROM Users WHERE Name = '$u'";
 		$result = @mysqli_query($dbc,$query);
-		//check if no rows, email can be used to register.
+		//check if no rows, username can be used to register.
+		if(mysqli_num_rows($result) == 0) {
+			//mail not used by any account
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	function insDB($m,$u,$p) {
+		require('inc/mysqli_connect.php');
+		$query = "INSERT INTO Users (Name, Email, Pass) VALUES ('$u','$m',SHA1('$p'))";
+		$result = @mysqli_query($dbc,$query);
 		if($result) {
 			return true;
 		}
@@ -41,5 +53,4 @@ function validatePass($p) {
 			return false;
 		}
 	}
-
 	?>
