@@ -35,7 +35,7 @@ include('inc/header.html');
 			VALUES ('$Owner', '$CATINS')";
 
 			if ($dbc->query($q) === TRUE) {
-				echo "<p id='Successfully'>New category created successfully</p>";
+				echo "<br/>"."<p id='Successfully'>New category created successfully</p>";
 			} else {
 				echo "Error: " . $q . "<br>" . $dbc->error;
 			}
@@ -66,38 +66,47 @@ include('inc/header.html');
 		<p> Insert Url </p>
 		<textarea cols='50' rows='4' name='LinkUrl'>Place your URL Here</textarea>
 		<br/>
-		<?php
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+<?php
 
+		if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submitLinks'])) {
+	//	if (!empty($_POST['LinkName']) && !empty($_POST['Categories'])) {
 	// Handle the form.
 			require('inc/mysqli_connect.php');
 
 			$Category = $_POST['Categories'];
 			$LinkName = $_POST['LinkName'];
 			$URL = $_POST['LinkUrl'];
-
+echo'topotamadre';
+	
 
 			$q = "INSERT INTO Links (LinkName, URL, CATParent)
 			VALUES ('$LinkName', '$URL', '$Category')";
 
-			if ($dbc->query($q) === TRUE && !empty($_POST['LinkName']) && !empty($_POST['LinkUrl']) && !empty($_POST['Categories'])) {
+			if ($dbc->query($q) === TRUE && !empty($_POST['Categories']) && !empty($_POST['LinkName']) && !empty($_POST['LinkUrl'])) {
 				echo "<p id='Successfully'>New Link $LinkName Added Successfully to $Category category.</p>";
 			}
-		       	else {
+		
+			else {
+				echo "<p id=\"errorlinks\">";
 				echo "Error: " . $q ."<br/>" . $dbc->error . "Link $LinkName coudn't be inserted." . "<br/>";
-			//	echo "<p class=\"error\">";
-					
+				echo "</p>";
+				
 			}
-
-			mysqli_close($dbc);
-
+				mysqli_close($dbc);	
+				
 		}
-	//	else {
-			
+	
+		
+		
+		
 	//	}
+
+			
+			
+
 	
 		?>
-		<input type='submit' value='Send'>
+		<input type='submit' value='Send' name='submitLinks'>
 	</div>
 </form>
 <?php include('inc/footer.html');?>
