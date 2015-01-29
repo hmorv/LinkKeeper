@@ -1,6 +1,9 @@
 <?php
+/* TODO protect queries from SQL injection */
+
+
 //this function builds a dropdownlist containing user's categories.
-//it receives $catArray as array parameter.
+//it receives $catArray as array argument.
 function buildCategories($a) {
 	echo "<option selected value=\"\">--Categories</option>";
 	foreach($a as $key => $value) {
@@ -26,13 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			echo "<td><input type='checkbox' name='delete[]' value='$key'/></td>";
 			echo "</tr>";
 		}
-		//echo "bucle: $key - currentCat:$ccat";		
 	}
 	echo "</tr>";
 	echo "</table>";
 	echo "<input type='submit' value='Delete'/>";
-	/*foreach($a as $key => $value) {
-		echo "-$key-- $value[0] - $value[1] - $value[2] - $value[3] <br>";*/
 }	
 }
 function getCategories($u) {
@@ -51,12 +51,12 @@ function getCategories($u) {
 	}
 	else {
 
-		//mysqli_free_result($dbc);
 	}
 	mysqli_close($dbc);
 	return ($cat);
 }
 function getLinks($a, $u) {
+	//this function build and send a SELECT query in order to get all links and store them into an array.
 	require('inc/mysqli_connect.php');
 	$links = array();
 	$query = "SELECT L.IDLink, L.LinkName, L.URL, L.CATParent FROM Links AS L INNER JOIN Categories AS C ON L.CATParent=C.IDCategory WHERE Owner='$u'";
@@ -77,7 +77,7 @@ function getLinks($a, $u) {
 		}
 	}
 	else {
-		echo "ERROR con la query!";
+		echo "Query ERROR";
 		//mysqli_free_result($dbc);
 	}
 	mysqli_close($dbc);
@@ -86,7 +86,6 @@ function getLinks($a, $u) {
 
 function eliminar($i) {
 	require('inc/mysqli_connect.php');
-	echo "dentro de eliminar()";
 	$query = "DELETE FROM Links WHERE IDLink = $i";
 	echo $query;
 	$result = mysqli_query($dbc,$query);
@@ -97,66 +96,4 @@ function eliminar($i) {
 		return false;
 	}
 }
-
-
-
-
-
-
-
-
-/*
-function fetchArray() {
-
-}
-function loadCategories($c,$IDCategory,$currentCAT) {
-	return $c;
-}
-function loadBookmarks($c,$l,$IDLink,$linkName,$URL) {
-	return $l;
-}
-function buildArray($a) {
-	//this function builds a multidimensional array that contains link-array.
-	//like this: Category1 => array(link1,link2,...,linkN)
-	//SELECT C.IDCategory, C.CATName, L.IDLink, L.LinkName, L.URL FROM Categories AS C INNER JOIN Links AS L ON L.IDCategory = C.IDCategory WHERE C.Owner = 'hugo.moragues@gmail.com' ORDER BY C.IDCategory, L.LinkName
-	require('inc/mysqli_connect().php');
-	$user = $_SESSION['id'];
-	$query = "SELECT C.IDCategory, C.CATName, L.IDLink, L.LinkName, L.URL FROM Categories AS C INNER JOIN Links AS L ON L.CATParent = C.IDCategory WHERE C.Owner = '$Owner' ORDER BY C.IDCategory, L.LinkName";
-	//$query = "SELECT CATName, IDCategory FROM Categories WHERE Owner='$user'";
-	$result = @mysqli_query($dbc, $query);
-	if($result) {
-		//fetch first result
-		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-			//save current Category, it'll be checked in the while loop
-			$IDCategory = $row['IDCategory'];
-			$currentCAT = $row['CATName'];
-			$IDLink = $row['IDLink'];
-			$linkName = $row['LinkName'];
-			$URL = $row['URL'];
-			//array
-			$link = array($IDLink,$linkName,$URL);
-			//store first link into array
-			$a[$currentCAT][$IDLink] = $link;
-			//while links belong to the same category, get links.
-			while($currentCAT == $row['IDCategory']) {
-				while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-					//store remaining links into array
-					$IDLink = $row['IDLink'];
-					$linkName = $row['LinkName'];
-					$URL = $row['URL'];
-					//array
-					$link = array($IDLink,$linkName,$URL);
-					$a[$currentCAT][$LinkName] = $URL;
-				}
-			}
-		}
-		return $a;
-	}
-	else {
-		mysqli_free_result ($dbc); // Free up the resources.
-		return mysqli_error($result);
-	}
-	mysqli_close($dbc); // Close the database connection.
-}
-*/
 ?>

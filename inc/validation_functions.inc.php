@@ -43,7 +43,7 @@ function validatePass($p) {
 		}
 	}
 	function insDB($m,$u,$p) {
-		require('inc/mysqli_connect.php');
+		rfiequire('inc/mysqli_connect.php');
 		$query = "INSERT INTO Users (Name, Email, Pass) VALUES ('$u','$m',SHA1('$p'))";
 		$result = @mysqli_query($dbc,$query);
 		if($result) {

@@ -10,7 +10,7 @@ else {
 	$page_title = "Main";
 	$userid = $_SESSION['id'];
 	$user = $_SESSION['name'];
-	include('inc/header.html');
+	include('inc/header.php');
 	require('inc/management_functions.inc.php');
 	//array that stores user categories
 	$catArray = array();
@@ -22,24 +22,13 @@ else {
 }
 
 if($_SERVER['REQUEST_METHOD']=='POST') {
-	echo "dentro post<br>";
-	if(!empty($_POST['delete'])) {
-		echo "dentro formLinks<br>";
-		$todelete = $_POST['delete'];
-		//echo $todelete;
-		echo(count($todelete));
-		for ($i=0; $i<count($todelete);$i++) {
-			//echo $todelete[$v];
-			echo "valor: ".$todelete[$i];
-			eliminar($todelete[$i]);
+	echo "dentro post";
+	if($_POST['formLinks']=='formLinks') {
+		echo "dentro formLinks";
+		$todelete = $_POST['delete[]'];
+		foreach ($todelete as $value) {
+			eliminar($value);
 		}
-
-		/*
-		falta que indique el resultado del DELETE al usuario y que recargue
-		ambas tablas en pantalla.
-		buildCategories($catArray);
-		buildBookmarks($linksArray,$currentCAT);*/
-
 	}
 	//aquí debería ir el envío de datos para modificar /eliminar categorias y enlaces.
 	//show Links
@@ -68,14 +57,12 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 		<form name="formLinks" action="" method="POST">
 			<?php
 			$currentCAT = $_POST['Categories'];
-			echo "Links from category: ". "<h1>".$catArray[$currentCAT]."</h1>";	
+			echo "<p> Links from category: ".$catArray[$currentCAT] ."</p>";	
 			buildBookmarks($linksArray,$currentCAT);
 			?> 
 		</form>
 	</div>
-</div>
 
 
 
-
-<?php include('inc/footer.html');?>
+	<?php include('inc/footer.php');?>

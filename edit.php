@@ -1,10 +1,19 @@
 <?php session_start();
 if(!isset($_SESSION['id'])) {
-	require('inc/login_functions.inc.php');
-	redirect_user('index.php');
-}
+		//require('login.php');
+		require('inc/login_functions.inc.php');
+		redirect_user('index.php');
+	}
 $page_title = "Edit";
-include('inc/header.php');
+include('inc/header.html');
 ?>
 <h1>Edit bookmarks / Categories</h1>
-<?phpinclude('inc/footer.php');?>
+<?php
+/*
+Esquema general:
+	-Recoger resultados SELECT usuario / Categorias
+	-Recoger resultados SELECT Categoria / Usuario
+	Mostrar resultados
+*/
+include('inc/footer.html');
+?>
